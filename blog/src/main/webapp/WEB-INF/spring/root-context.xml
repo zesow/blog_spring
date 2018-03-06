@@ -14,9 +14,9 @@
     <bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"/>
-        <property name="url" value="jdbc:log4jdbc:mysql://localhost:3306/blog?autoReconnect=true&amp;useSSL=false" />
-        <property name="username" value="root" />
-        <property name="password" value="200101" />
+        <property name="url" value="jdbc:log4jdbc:mysql://blog.cyzgat2x0lhe.ap-northeast-2.rds.amazonaws.com:3306/blog?autoReconnect=true&amp;useSSL=false" />
+        <property name="username" value="gus" />
+        <property name="password" value="zes200101" />
     </bean>
     
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
