@@ -11,7 +11,9 @@
 	
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<annotation-driven />
+	
 
+	
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/resources/**" location="/resources/" />
 	<resources mapping="/summernote/**" location="/resources/summernote/" />
@@ -22,6 +24,8 @@
 	</beans:bean>
 	
 	<context:component-scan base-package="net.thebogus.*" />
+	
+	<view-controller path="/about" view-name="/common/about"/>
 	
 	<beans:bean id="loginInterceptor" class="net.thebogus.Interceptor.LoginInterceptor">
 	</beans:bean>
@@ -40,4 +44,7 @@
 		</interceptor>
 	</interceptors>
 	
+		
+
 </beans:beans>
+

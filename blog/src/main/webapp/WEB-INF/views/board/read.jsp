@@ -73,8 +73,8 @@
 	<input type="hidden" name="boardName" value='${boardVO.boardName }'>
 </form>
 <c:if test="${login.id == boardVO.writer }">
-<button type="submit" class="btn btn-danger">삭제</button>
-<button type="submit" class="btn btn-warning">수정</button>
+	<button type="submit" class="btn btn-danger">삭제</button>
+	<button type="submit" class="btn btn-warning">수정</button>
 </c:if>
 <button type="submit" class="btn btn-primary">목록</button>
 </div>

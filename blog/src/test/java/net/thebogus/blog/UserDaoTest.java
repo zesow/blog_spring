@@ -24,6 +24,6 @@ public class UserDaoTest {
 		vo.setPasswd("gus");
 		vo.setName("거스");
 		vo.setMail("sdaasd@naver.com");
-		dao.insertUser(vo);
+	
 	}
 }

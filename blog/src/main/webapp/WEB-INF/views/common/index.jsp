@@ -124,7 +124,6 @@
 
     <!-- Custom scripts for this template -->
     <script src="/resources/cleanblog/js/clean-blog.min.js"></script>
-
 </body>
 </html>
 
