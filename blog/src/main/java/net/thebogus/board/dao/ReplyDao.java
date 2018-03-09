@@ -4,7 +4,6 @@ import java.util.List;
 
 import net.thebogus.board.vo.ReplyVO;
 import net.thebogus.board.vo.Criteria;
-// 이름변경.
 public interface ReplyDao {
 	
 	public List<ReplyVO> list(Integer bNo) throws Exception;
