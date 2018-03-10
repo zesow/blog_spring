@@ -49,6 +49,7 @@
     			<li><a href="/board/movie">영화</a></li>
     		</ul>
     </li>
+    <li><a href="/free">자유게시판</a></li>
    </ul>
    <ul class="nav navbar-nav navbar-right">
   
