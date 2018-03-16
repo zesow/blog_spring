@@ -20,6 +20,21 @@ import net.thebogus.board.vo.PageMaker;
 @RequestMapping("/board/*")
 public class BoardController {
 	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
+	
+	private static final int PROJECTS = 1;
+	private static final int ALGORITHM = 2;
+	private static final int FINANCE = 3;
+	private static final int LAW = 4;
+	private static final int PHOTO = 5;
+	private static final int FOOD = 6;
+	private static final int BOOK = 7;
+	private static final int FREE = 8;
+	private static final int GAME = 9;
+	private static final int MACHINE = 10;
+	private static final int MAJOR = 11;
+	private static final int MOVIE = 12;
+	private static final int OTHERS = 13;
+	
 	@Inject
 	private BoardService service;
 	
@@ -89,7 +104,7 @@ public class BoardController {
 	@RequestMapping(value="/projects", method = RequestMethod.GET)
 	public void projectsList(Criteria cri,Model model) throws Exception{
 		logger.info("criteria");
-		cri.setBoardno(1);
+		cri.setBoardno(PROJECTS);
 		model.addAttribute("list",service.selectArticleCriteria(cri));
 		
 		PageMaker pageMaker = new PageMaker();
@@ -102,7 +117,7 @@ public class BoardController {
 	public void algorithmList(Criteria cri,Model model) throws Exception{
 		logger.info("criteria");
 		
-		cri.setBoardno(2);
+		cri.setBoardno(ALGORITHM);
 		
 		model.addAttribute("list",service.selectArticleCriteria(cri));
 		
@@ -116,7 +131,7 @@ public class BoardController {
 	public void financeList(Criteria cri,Model model) throws Exception{
 		logger.info("criteria");
 		
-		cri.setBoardno(3);
+		cri.setBoardno(FINANCE);
 		
 		model.addAttribute("list",service.selectArticleCriteria(cri));
 		
@@ -130,7 +145,7 @@ public class BoardController {
 	public void lawList(Criteria cri,Model model) throws Exception{
 		logger.info("criteria");
 		
-		cri.setBoardno(4);
+		cri.setBoardno(LAW);
 		
 		model.addAttribute("list",service.selectArticleCriteria(cri));
 		
@@ -144,7 +159,7 @@ public class BoardController {
 	public void photoList(Criteria cri,Model model) throws Exception{
 		logger.info("criteria");
 		
-		cri.setBoardno(5);
+		cri.setBoardno(PHOTO);
 		
 		model.addAttribute("list",service.selectArticleCriteria(cri));
 		
@@ -154,11 +169,11 @@ public class BoardController {
 		model.addAttribute("pageMaker",pageMaker);
 	}
 	
-	@RequestMapping(value="/food", method = RequestMethod.GET)
-	public void foodList(Criteria cri,Model model) throws Exception{
+	@RequestMapping(value="/book", method = RequestMethod.GET)
+	public void bookList(Criteria cri,Model model) throws Exception{
 		logger.info("criteria");
 		
-		cri.setBoardno(6);
+		cri.setBoardno(BOOK);
 		
 		model.addAttribute("list",service.selectArticleCriteria(cri));
 		
@@ -167,5 +182,90 @@ public class BoardController {
 		pageMaker.setTotalCount(service.countPaging(cri));
 		model.addAttribute("pageMaker",pageMaker);
 	}
+	
+	@RequestMapping(value="/free", method = RequestMethod.GET)
+	public void freeList(Criteria cri,Model model) throws Exception{
+		logger.info("criteria");
+		
+		cri.setBoardno(FREE);
+		
+		model.addAttribute("list",service.selectArticleCriteria(cri));
+		
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(service.countPaging(cri));
+		model.addAttribute("pageMaker",pageMaker);
+	}
+	
+	@RequestMapping(value="/game", method = RequestMethod.GET)
+	public void gameList(Criteria cri,Model model) throws Exception{
+		logger.info("criteria");
+		
+		cri.setBoardno(GAME);
+		
+		model.addAttribute("list",service.selectArticleCriteria(cri));
+		
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(service.countPaging(cri));
+		model.addAttribute("pageMaker",pageMaker);
+	}
+	
+	@RequestMapping(value="/machine", method = RequestMethod.GET)
+	public void machineList(Criteria cri,Model model) throws Exception{
+		logger.info("criteria");
+		
+		cri.setBoardno(MACHINE);
+		
+		model.addAttribute("list",service.selectArticleCriteria(cri));
+		
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(service.countPaging(cri));
+		model.addAttribute("pageMaker",pageMaker);
+	}
+	
+	@RequestMapping(value="/major", method = RequestMethod.GET)
+	public void majorList(Criteria cri,Model model) throws Exception{
+		logger.info("criteria");
+		
+		cri.setBoardno(MAJOR);
+		
+		model.addAttribute("list",service.selectArticleCriteria(cri));
+		
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(service.countPaging(cri));
+		model.addAttribute("pageMaker",pageMaker);
+	}
+	
+	@RequestMapping(value="/movie", method = RequestMethod.GET)
+	public void movieList(Criteria cri,Model model) throws Exception{
+		logger.info("criteria");
+		
+		cri.setBoardno(MOVIE);
+		
+		model.addAttribute("list",service.selectArticleCriteria(cri));
+		
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(service.countPaging(cri));
+		model.addAttribute("pageMaker",pageMaker);
+	}
+	
+	@RequestMapping(value="/others", method = RequestMethod.GET)
+	public void othersList(Criteria cri,Model model) throws Exception{
+		logger.info("criteria");
+		
+		cri.setBoardno(OTHERS);
+		
+		model.addAttribute("list",service.selectArticleCriteria(cri));
+		
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(service.countPaging(cri));
+		model.addAttribute("pageMaker",pageMaker);
+	}
+	
 	
 }

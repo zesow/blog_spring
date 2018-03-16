@@ -50,7 +50,7 @@
     			<li><a href="/board/book">책</a></li>
     		</ul>
     </li>
-    <li><a href="/free">자유게시판</a></li>
+    <li><a href="/board/free">자유게시판</a></li>
    </ul>
    <ul class="nav navbar-nav navbar-right">
   
