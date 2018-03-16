@@ -70,7 +70,11 @@
 						</div>
 					</div>
 		<c:if test="${not empty login.id}">
-		<a href = "/board/insert" class="btn btn-default">글쓰기 </a>
+		<form method="post" role="form" action="/board/insert">
+			<input type="hidden" name="boardNo" value='${boardVO.boardNo }'>
+			<button type="submit" class="btn btn-default">글쓰기 </a>
+		</form>
+		
 		</c:if>
 </div>
 </div>
