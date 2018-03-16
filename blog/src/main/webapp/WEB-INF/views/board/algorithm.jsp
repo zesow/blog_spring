@@ -70,7 +70,7 @@
 						</div>
 					</div>
 		<c:if test="${not empty login.id}">
-		<a href = "/board/insert?boardno=${pageMaker.cri.boardno }" class="btn btn-default">글쓰기 </a>
+		<a href = "/board/insert" class="btn btn-default">글쓰기 </a>
 		</c:if>
 </div>
 </div>
