@@ -47,6 +47,7 @@
     			<li><a href="/board/game">게임</a></li>
     			<li><a href="/board/machine">기계</a></li>
     			<li><a href="/board/movie">영화</a></li>
+    			<li><a href="/board/book">책</a></li>
     		</ul>
     </li>
     <li><a href="/free">자유게시판</a></li>
