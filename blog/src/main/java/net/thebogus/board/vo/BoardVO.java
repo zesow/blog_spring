@@ -93,12 +93,34 @@ public class BoardVO {
 			boardRealName = "음식";
 		}
 		else if(boardno == 7) {
+			boardName = "book";
+			boardRealName = "책";
+		}
+		else if(boardno == 8) {
+			boardName = "free";
+			boardRealName = "자유";
+		}
+		else if(boardno == 9) {
 			boardName = "game";
 			boardRealName = "게임";
 		}
-		else if(boardno == 8) {
+		else if(boardno == 10) {
 			boardName = "machine";
 			boardRealName = "기계";
 		}
+		else if(boardno == 11) {
+			boardName = "major";
+			boardRealName = "전공";
+		}
+		else if(boardno == 12) {
+			boardName = "movie";
+			boardRealName = "영화";
+		}
+		else if(boardno == 13) {
+			boardName = "others";
+			boardRealName = "기타";
+		}
+	
+	
 	}
 }

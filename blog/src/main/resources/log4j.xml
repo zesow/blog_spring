@@ -47,7 +47,7 @@
 	</logger>
 
 	<logger name="jdbc.sqlonly" additivity="false">
- 		<level value="info" />
+ 		<level value="OFF" />
  		<appender-ref ref="console" />
 	</logger>
 	<!-- Root Logger -->

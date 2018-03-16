@@ -70,11 +70,7 @@
 						</div>
 					</div>
 		<c:if test="${not empty login.id}">
-		<form method="post" role="form" action="/board/insert">
-			<input type="hidden" name="boardNo" value='${boardVO.boardNo }'>
-			<button type="submit" class="btn btn-default">글쓰기 </a>
-		</form>
-		
+			<a href = "/board/insert?boardno=${pageMaker.cri.boardno }" class="btn btn-default">글쓰기 </a>
 		</c:if>
 </div>
 </div>
