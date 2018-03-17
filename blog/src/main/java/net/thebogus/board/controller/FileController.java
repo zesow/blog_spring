@@ -1,6 +1,9 @@
 package net.thebogus.board.controller;
 
 import java.io.IOException;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -14,6 +17,7 @@ import net.thebogus.s3.S3Manager;
 @Controller
 @RequestMapping("/file")
 public class FileController {
+	private static final Logger logger = LoggerFactory.getLogger(FileController.class);
 	@PostMapping("")
 	public ResponseEntity<?> handleImageUpload(@RequestParam("file") MultipartFile file) {
 		String fileName;
@@ -24,7 +28,7 @@ public class FileController {
 			S3Manager s3Manager = new S3Manager();
 			
 			fileName = s3Manager.saveUploadedFiles(file);
-			System.out.println("fileName" + fileName);
+			logger.info("fileName : " + fileName);
 		} catch (IOException e) {
 			e.printStackTrace();
 			return ResponseEntity.badRequest().build();

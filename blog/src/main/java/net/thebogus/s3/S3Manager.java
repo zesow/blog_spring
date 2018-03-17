@@ -6,6 +6,9 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.amazonaws.auth.AWSStaticCredentialsProvider;
@@ -23,11 +26,13 @@ import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.amazonaws.services.s3.model.DeleteObjectsRequest.KeyVersion;
 
+import net.thebogus.board.controller.ReplyController;
+
 public class S3Manager {
 	private static final String ACCESS = "AKIAIFVNXGXEQOFXRCAA";
 	private static final String SECRET = "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";
 	private static final String amazonPath = "https://s3.ap-northeast-2.amazonaws.com/gus-blog-image/image/";
-	
+	private static final Logger logger = LoggerFactory.getLogger(S3Manager.class);
 	static BasicAWSCredentials creds = new BasicAWSCredentials(ACCESS, SECRET); 
 	static AmazonS3 s3Client = AmazonS3ClientBuilder.standard().withCredentials(new AWSStaticCredentialsProvider(creds)).build();
 
@@ -49,7 +54,7 @@ public class S3Manager {
 			System.out.println("name : " + name);
 			s3Client.putObject(req);
 			S3ResponseMetadata md = s3Client.getCachedResponseMetadata(req);
-			System.out.println("Host ID: " + md.getHostId() + " RequestID: " + md.getRequestId());
+			logger.info("Host ID: " + md.getHostId() + " RequestID: " + md.getRequestId());
 
 			return true;
 		} catch (Exception e) {
