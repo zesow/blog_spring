@@ -45,8 +45,8 @@ public class BoardController {
 	
 	@RequestMapping(value="/insert", method=RequestMethod.POST)
 	public String insertPOST(BoardVO boardVO,RedirectAttributes rttr) throws Exception{
-		logger.info("register post...");
-		logger.info(boardVO.toString());
+		logger.info("insert post...");
+		
 		service.insertArticle(boardVO);
 		rttr.addFlashAttribute("result","success");
 //		return "/board/success";
@@ -79,13 +79,12 @@ public class BoardController {
 		logger.info("modify article...........");
 		service.updateArticle(boardVO);
 		rttr.addFlashAttribute("result","success");
-//		return "/board/success";
 		return "redirect:/board/"+ boardName;
 	}
 	
 	@RequestMapping(value="/list", method = RequestMethod.GET)
 	public void listCri(Criteria cri,Model model) throws Exception{
-		logger.info("criteria");
+		logger.info("list");
 		model.addAttribute("list",service.selectArticleCriteria(cri));
 		
 		PageMaker pageMaker = new PageMaker();

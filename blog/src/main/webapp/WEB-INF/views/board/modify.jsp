@@ -26,23 +26,48 @@
 
 <div class="form-group">
 	<label for="text">내용   : </label>
-	<textarea rows="10" name="content" class="summernote" >${boardVO.content}</textarea>
+	<textarea rows="10" name="content" class="summernote" id="summernote">${boardVO.content}</textarea>
 </div>	
+
 <button type="submit" class="btn btn-default">submit</button>
 </form>
 </div>
 <script>
 
 $(document).ready(function() {
-    $('.summernote').summernote({
-      height: 300,          // 기본 높이값
-      minHeight: null,      // 최소 높이값(null은 제한 없음)
-      maxHeight: null,      // 최대 높이값(null은 제한 없음)
-      focus: true,          // 페이지가 열릴때 포커스를 지정함
-      lang: 'ko-KR',         // 한국어 지정(기본값은 en-US)
-      
-    });
+	var sendFile = function (file, el) {
+	      var form_data = new FormData();
+	      form_data.append('file', file);
+	      $.ajax({
+	        data: form_data,
+	        type: "POST",
+	        url: '/file',
+	        cache: false,
+	        contentType: false,
+	        enctype: 'multipart/form-data',
+	        processData: false,
+	        success: function(url) {
+	        		$('#summernote').summernote('insertImage', url);
+		        $('#imageBoard > ul').append('<li><img src="'+ url +'" width="480" height="auto"/></li>');
+	        }
+	      });
+	    }
+  $('.summernote').summernote({
+    height: 300,          // 기본 높이값
+    minHeight: null,      // 최소 높이값(null은 제한 없음)
+    maxHeight: null,      // 최대 높이값(null은 제한 없음)
+    focus: true,          // 페이지가 열릴때 포커스를 지정함
+    lang: 'ko-KR',         // 한국어 지정(기본값은 en-US)
+    callbacks: {
+        onImageUpload: function(files, editor, welEditable) {
+          for (var i = files.length - 1; i >= 0; i--) {
+            sendFile(files[i], this);
+          }
+        }
+      }
   });
+});
+
 
 	function formCheck(){
 	    var title = document.forms[0].title.value;     
