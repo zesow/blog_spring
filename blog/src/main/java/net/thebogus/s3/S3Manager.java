@@ -47,6 +47,7 @@ public class S3Manager {
 		sendFiles(randomFileName, bytes);
 		return amazonPath + randomFileName;
 	}
+	
 	public static boolean sendFiles(String name, byte[] file) {
 		InputStream is = new ByteArrayInputStream(file);
 		try {
@@ -62,6 +63,7 @@ public class S3Manager {
 		}
 		return false;
 	}
+	
 	public static PutObjectRequest makeRequest(InputStream is, String fileName) {
 		ObjectMetadata uploadMetaData = new ObjectMetadata();
 		return new PutObjectRequest("gus-blog-image/image", fileName, is, uploadMetaData).withCannedAcl(CannedAccessControlList.PublicRead);

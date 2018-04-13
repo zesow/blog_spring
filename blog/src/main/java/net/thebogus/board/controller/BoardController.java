@@ -40,7 +40,6 @@ public class BoardController {
 	
 	@RequestMapping(value="/insert", method=RequestMethod.GET)
 	public void insertGET(BoardVO boardVO,Model model) throws Exception{
-		logger.info("register get.....");
 	}
 	
 	@RequestMapping(value="/insert", method=RequestMethod.POST)
@@ -49,7 +48,6 @@ public class BoardController {
 		
 		service.insertArticle(boardVO);
 		rttr.addFlashAttribute("result","success");
-//		return "/board/success";
 		return "redirect:/board/" + boardVO.getBoardName();
 	}
 	
@@ -65,7 +63,6 @@ public class BoardController {
 		logger.info("remove article...........");
 		service.deleteArticle(idx);
 		rttr.addFlashAttribute("result","success");
-//		return "/board/success";
 		return "redirect:/board/" + boardName;
 	}
 	
@@ -84,7 +81,7 @@ public class BoardController {
 	
 	@RequestMapping(value="/list", method = RequestMethod.GET)
 	public void listCri(Criteria cri,Model model) throws Exception{
-		logger.info("list");
+		logger.info("list articles....");
 		model.addAttribute("list",service.selectArticleCriteria(cri));
 		
 		PageMaker pageMaker = new PageMaker();
@@ -102,7 +99,7 @@ public class BoardController {
 //각 게시판들 
 	@RequestMapping(value="/projects", method = RequestMethod.GET)
 	public void projectsList(Criteria cri,Model model) throws Exception{
-		logger.info("criteria");
+		
 		cri.setBoardno(PROJECTS);
 		model.addAttribute("list",service.selectArticleCriteria(cri));
 		
@@ -114,7 +111,7 @@ public class BoardController {
 	
 	@RequestMapping(value="/algorithm", method = RequestMethod.GET)
 	public void algorithmList(Criteria cri,Model model) throws Exception{
-		logger.info("criteria");
+		
 		
 		cri.setBoardno(ALGORITHM);
 		
@@ -128,7 +125,7 @@ public class BoardController {
 	
 	@RequestMapping(value="/finance", method = RequestMethod.GET)
 	public void financeList(Criteria cri,Model model) throws Exception{
-		logger.info("criteria");
+		
 		
 		cri.setBoardno(FINANCE);
 		
@@ -142,7 +139,7 @@ public class BoardController {
 	
 	@RequestMapping(value="/law", method = RequestMethod.GET)
 	public void lawList(Criteria cri,Model model) throws Exception{
-		logger.info("criteria");
+		
 		
 		cri.setBoardno(LAW);
 		
@@ -156,7 +153,7 @@ public class BoardController {
 	
 	@RequestMapping(value="/photo", method = RequestMethod.GET)
 	public void photoList(Criteria cri,Model model) throws Exception{
-		logger.info("criteria");
+		
 		
 		cri.setBoardno(PHOTO);
 		
@@ -170,7 +167,7 @@ public class BoardController {
 	
 	@RequestMapping(value="/book", method = RequestMethod.GET)
 	public void bookList(Criteria cri,Model model) throws Exception{
-		logger.info("criteria");
+		
 		
 		cri.setBoardno(BOOK);
 		
@@ -184,7 +181,7 @@ public class BoardController {
 	
 	@RequestMapping(value="/free", method = RequestMethod.GET)
 	public void freeList(Criteria cri,Model model) throws Exception{
-		logger.info("criteria");
+		
 		
 		cri.setBoardno(FREE);
 		
@@ -198,7 +195,7 @@ public class BoardController {
 	
 	@RequestMapping(value="/game", method = RequestMethod.GET)
 	public void gameList(Criteria cri,Model model) throws Exception{
-		logger.info("criteria");
+		
 		
 		cri.setBoardno(GAME);
 		
@@ -212,7 +209,7 @@ public class BoardController {
 	
 	@RequestMapping(value="/machine", method = RequestMethod.GET)
 	public void machineList(Criteria cri,Model model) throws Exception{
-		logger.info("criteria");
+		
 		
 		cri.setBoardno(MACHINE);
 		
@@ -226,7 +223,7 @@ public class BoardController {
 	
 	@RequestMapping(value="/major", method = RequestMethod.GET)
 	public void majorList(Criteria cri,Model model) throws Exception{
-		logger.info("criteria");
+		
 		
 		cri.setBoardno(MAJOR);
 		
@@ -240,7 +237,7 @@ public class BoardController {
 	
 	@RequestMapping(value="/movie", method = RequestMethod.GET)
 	public void movieList(Criteria cri,Model model) throws Exception{
-		logger.info("criteria");
+		
 		
 		cri.setBoardno(MOVIE);
 		
@@ -254,7 +251,7 @@ public class BoardController {
 	
 	@RequestMapping(value="/others", method = RequestMethod.GET)
 	public void othersList(Criteria cri,Model model) throws Exception{
-		logger.info("criteria");
+		
 		
 		cri.setBoardno(OTHERS);
 		

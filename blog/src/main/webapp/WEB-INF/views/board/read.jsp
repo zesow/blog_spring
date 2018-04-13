@@ -61,7 +61,8 @@
 			<label>내용</label> 
 			<textarea type="text" name="replyText" id="newReplyText" class="summernote"></textarea>
 		</div>
-		<button id="replyAddBtn" class="btn btn-success">댓글 등록</button>
+			
+			<button id="replyAddBtn" class="btn btn-success">댓글 등록</button>
 	</div>
 
 </div>
@@ -103,9 +104,11 @@ function getAllList(){
 					+ this.replyer
 					+ "  등록일 : "
 					+ this.regDate
+					+ " 댓글 번호 : "
+					+ this.rNo
 					+"<div class='pull-right'>"
-					+"<a>" + "삭제" + "</a>"
-					+"</div>"
+					+"<a onclick=commentDelete("+this.rNo+") style='cursor:pointer'>" + "삭제" + "</a>"
+					+"</for>"
 					+"</h4>"
 					+"</div>"
 					+"<div class='panel-body'>"
@@ -121,6 +124,7 @@ function getAllList(){
 }
 /* set */
 $("#replyAddBtn").on("click",function(){
+	console.log("등록 버튼.");
 	var replyer = $("#newReplyWriter").val();
 	var replyText = $("#newReplyText").val();
 	
@@ -153,11 +157,9 @@ $("#replyAddBtn").on("click",function(){
 });
 		
 /* 삭제 */
-$("#replyDelBtn").on("click", function() {
- 
-  var rNo = $(".modal-title").html();
-  var replyText = $("#replyText").val();
- 
+//$("#replyDelBtn").on("click", function() {
+function commentDelete(rNo){
+	console.log(rNo)
   $.ajax({
     type : 'delete',
     url : '/replies/' + rNo,
@@ -174,7 +176,7 @@ $("#replyDelBtn").on("click", function() {
       }
     }
   });
-});
+}
 
 $(document).ready(function() {
 	getAllList();

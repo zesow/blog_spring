@@ -36,8 +36,10 @@
 <button type="submit" class="btn btn-default">submit</button>
 </form>
 </div>
+
 <script>
 $(document).ready(function() {
+	/* 이미지 업로드. */
 	var sendFile = function (file, el) {
 	      var form_data = new FormData();
 	      form_data.append('file', file);
@@ -55,6 +57,7 @@ $(document).ready(function() {
 	        }
 	      });
 	    }
+	
     $('.summernote').summernote({
       height: 300,          // 기본 높이값
       minHeight: null,      // 최소 높이값(null은 제한 없음)
@@ -83,6 +86,7 @@ $(document).ready(function() {
 	        return false;                                                     // false를 리턴합니다.
 	    }	 
 	}
+	
 </script>
 </body>
 </html>
