@@ -50,7 +50,18 @@ public class BoardController {
 		rttr.addFlashAttribute("result","success");
 		return "redirect:/board/" + boardVO.getBoardName();
 	}
-	
+
+	@RequestMapping(value="/insertfree", method=RequestMethod.GET)
+	public void insertfreeGET(BoardVO boardVO,Model model) throws Exception{
+	}
+	@RequestMapping(value="/insertfree", method=RequestMethod.POST)
+	public String insertfreePOST(BoardVO boardVO,RedirectAttributes rttr) throws Exception{
+		logger.info("insert post...");
+		
+		service.insertArticle(boardVO);
+		rttr.addFlashAttribute("result","success");
+		return "redirect:/board/" + boardVO.getBoardName();
+	}
 	
 	@RequestMapping(value = "/read", method = RequestMethod.GET)
 	public void read(int idx,Model model,@ModelAttribute("cri")Criteria cri) throws Exception{
