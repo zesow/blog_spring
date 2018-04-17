@@ -73,7 +73,7 @@
 	<input type="hidden" name="perPageNum" value='${cri.perPageNum }'>
 	<input type="hidden" name="boardName" value='${boardVO.boardName }'>
 </form>
-<c:if test="${login.id == boardVO.writer }">
+<c:if test="${login.id == 'zesow' }">
 	<button type="submit" class="btn btn-danger">삭제</button>
 	<button type="submit" class="btn btn-warning">수정</button>
 </c:if>
@@ -104,8 +104,6 @@ function getAllList(){
 					+ this.replyer
 					+ "  등록일 : "
 					+ this.regDate
-					+ " 댓글 번호 : "
-					+ this.rNo
 					+"<div class='pull-right'>"
 					+"<a onclick=commentDelete("+this.rNo+") style='cursor:pointer'>" + "삭제" + "</a>"
 					+"</for>"
@@ -124,9 +122,17 @@ function getAllList(){
 }
 /* set */
 $("#replyAddBtn").on("click",function(){
-	console.log("등록 버튼.");
 	var replyer = $("#newReplyWriter").val();
 	var replyText = $("#newReplyText").val();
+	
+	if(replyer == "") {
+		    alert("작성자를 입력해 주세요.");
+		    return false;
+	}
+	else if(replyText == "") {
+		    alert("작성내용을 입력해 주세요.");
+		    return false;
+	}
 	
 	      $.ajax({
 		        type : 'post',
@@ -159,7 +165,6 @@ $("#replyAddBtn").on("click",function(){
 /* 삭제 */
 //$("#replyDelBtn").on("click", function() {
 function commentDelete(rNo){
-	console.log(rNo)
   $.ajax({
     type : 'delete',
     url : '/replies/' + rNo,
