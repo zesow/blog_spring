@@ -51,6 +51,7 @@
     		</ul>
     </li>
     <li><a href="/board/free">자유게시판</a></li>
+    <li><a href="http://ec2-52-15-82-149.us-east-2.compute.amazonaws.com:8080">GitWatcher</a></li>
    </ul>
    <ul class="nav navbar-nav navbar-right">
   
